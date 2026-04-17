@@ -2,10 +2,17 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, DM_Sans, Roboto } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import AppSideBar from "@/components/AppSideBar";
+import NavBar from "@/components/NavBar";
+import { ThemeProvider } from "@/components/Provoders/theme-provider";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
-const robotoHeading = Roboto({subsets:['latin'],variable:'--font-heading'});
+const robotoHeading = Roboto({
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
 
-const dmSans = DM_Sans({subsets:['latin'],variable:'--font-sans'});
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +37,34 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", dmSans.variable, robotoHeading.variable)}
+      suppressHydrationWarning
+      className={cn(
+        "h-full",
+        "antialiased",
+        geistSans.variable,
+        geistMono.variable,
+        "font-sans",
+        dmSans.variable,
+        robotoHeading.variable,
+        
+      )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SidebarProvider>
+          <AppSideBar />
+          <main className="">
+            <NavBar />
+            <div className="px-4">{children}</div>
+          </main>
+          </SidebarProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
