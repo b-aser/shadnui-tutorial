@@ -1,13 +1,14 @@
 "use client";
-import React from "react";
+
+import { TrendingUp } from "lucide-react";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "./ui/chart";
-import { PieChart } from "lucide-react";
-import { Label, Pie } from "recharts";
+
+import { Label, Pie, PieChart } from "recharts";
 
 
 
@@ -25,23 +26,23 @@ const chartConfig = {
   },
   chrome: {
     label: "Chrome",
-    color: "var(--chart-1)",
+    color: "var(--chrome)",
   },
   safari: {
     label: "Safari",
-    color: "var(--chart-2)",
+    color: "var(--safari)",
   },
   firefox: {
     label: "Firefox",
-    color: "var(--chart-3)",
+    color: "var(--firefox)",
   },
   edge: {
     label: "Edge",
-    color: "var(--chart-4)",
+    color: "var(--edge)",
   },
   other: {
     label: "Other",
-    color: "var(--chart-5)",
+    color: "var(--other)",
   },
 } satisfies ChartConfig;
 
@@ -98,6 +99,14 @@ const AppPieChart = () => {
             </Pie>
           </PieChart>
         </ChartContainer>
+        <div className="mt-4 flex flex-col gap-2 items-center">
+        <div className="flex items-center gap-2 leading-none font-medium">
+          Trending up by 5.2% this month <TrendingUp className="h-4 w-4 text-greeon-500" />
+        </div>
+        <div className="leading-none text-muted-foreground">
+          Showing total visitors for the last 6 months
+        </div>
+        </div>
     </div>
   );
 };
