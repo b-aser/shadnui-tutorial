@@ -1,5 +1,11 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shadcn UI Tutorial Project
 
+This project is part of a YouTube tutorial video on the famous Shadcn UI component. 
+You can watch the video here: [YouTube Video Link](https://www.youtube.com/watch?v=SjsQdfvxjL8)
+
+---
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 ## Getting Started
 
 First, run the development server:
